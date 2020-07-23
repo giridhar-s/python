@@ -1,0 +1,13 @@
+import math
+principle = int(input("Enter Principle Amount: "))
+rate = int(input("Enter rate of interest: "))
+time = int(input("enter duration: "))
+interest = (principle / 100 * rate)
+#print("Your Monthly Flat EMI is: ",math.ceil((principle + interest * time) / (time * 12)))
+nemorator = (principle * (rate / 12 /100) * (1 + (rate / 12 / 100)) ** (time * 12))
+denominator = ((1+ (rate / 12 / 100)) ** (time * 12) - 1)
+emi = (nemorator / denominator)
+print("Your Monthly Reduced EMI is: ", math.floor(emi))
+print("Loan Amount: ", principle)
+print("Interest Payable: ", math.floor(emi * (time * 12) - principle))
+print("Total Payble: ",principle +  math.floor(emi * (time * 12) - principle))
